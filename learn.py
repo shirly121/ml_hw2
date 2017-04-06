@@ -66,10 +66,12 @@ def solve_condprob_con():
                 for i in range(r_len - 4, r_len - 1):
                     if row[r_len - 1] == '1':
                         expect_c1[i-r_len+4] += float(row[i])
-                        c1_cnt += 1
                     else:
                         expect_c2[i-r_len+4] += float(row[i])
-                        c2_cnt += 1
+                if row[r_len - 1] == '1':
+                    c1_cnt += 1
+                else:
+                    c2_cnt += 1
             line_num += 1
         for i in range(0, 3):
             expect_c1[i] /= c1_cnt
@@ -92,21 +94,28 @@ def solve_condprob_con():
                         diff = float(row[i]) - expect_c2[i-r_len+4]
                         variance_c2[i-r_len+4] = diff * diff
             line_num += 1
+        #print "!!!!!", c1_cnt, c2_cnt
         for i in range(0, 3):
             variance_c1[i] /= (c1_cnt - 1)
             variance_c2[i] /= (c2_cnt - 1)
     return expect_c1, expect_c2, variance_c1, variance_c2
 
-##call function
-#(t1, t2) = solve_condprob_dis()
-#(e1, e2, v1, v2) = solve_condprob_con()
-#for ele in t1:
-#    print ele,
-#print "end of terms_c1#######################"
-##for ele in
-#for ele in e1:
-#    print ele,
-#print "end of expect_c1######################"
-#for ele in v1:
-#    print ele,
-#print "end of variance_c1####################"
+#call function
+(t1, t2) = solve_condprob_dis()
+(e1, e2, v1, v2) = solve_condprob_con()
+for ele in t1:
+    print ele,
+print "end of terms_c1#######################\n"
+#for ele in
+for ele in e1:
+    print ele,
+print "end of expect_c1######################\n"
+for ele in v1:
+    print ele,
+print "end of variance_c1####################\n"
+for ele in e2:
+    print ele,
+print "end of expect_c2######################\n"
+for ele in v2:
+    print ele,
+print "end of variance_c2####################\n"
