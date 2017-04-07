@@ -100,22 +100,22 @@ def solve_condprob_con():
             variance_c2[i] /= (c2_cnt - 1)
     return expect_c1, expect_c2, variance_c1, variance_c2
 
-#call function
-(t1, t2) = solve_condprob_dis()
-(e1, e2, v1, v2) = solve_condprob_con()
-for ele in t1:
-    print ele,
-print "end of terms_c1#######################\n"
-#for ele in
-for ele in e1:
-    print ele,
-print "end of expect_c1######################\n"
-for ele in v1:
-    print ele,
-print "end of variance_c1####################\n"
-for ele in e2:
-    print ele,
-print "end of expect_c2######################\n"
-for ele in v2:
-    print ele,
-print "end of variance_c2####################\n"
+##call function
+#(t1, t2) = solve_condprob_dis()
+#(e1, e2, v1, v2) = solve_condprob_con()
+#for ele in t1:
+#    print ele,
+#print "end of terms_c1#######################\n"
+##for ele in
+#for ele in e1:
+#    print ele,
+#print "end of expect_c1######################\n"
+#for ele in v1:
+#    print ele,
+#print "end of variance_c1####################\n"
+#for ele in e2:
+#    print ele,
+#print "end of expect_c2######################\n"
+#for ele in v2:
+#    print ele,
+#print "end of variance_c2####################\n"

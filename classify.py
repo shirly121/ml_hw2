@@ -18,13 +18,14 @@ def classify():
             score_c1 = math.log(pr_c1)
             score_c2 = math.log(pr_c2)
             for i in range(0, r_len - 1):
-                ##discrete
+                #discrete
                 #if i < r_len - 4:
                 #    score_c1 += float(row[i]) * math.log(terms_c1[i])
                 #    score_c2 += float(row[i]) * math.log(terms_c2[i])
                 #continuous
-                #elif i == r_len - 4 or i == r_len - 3:
-                if i >= r_len - 4:
+                if i == r_len - 3 or i == r_len - 2:
+                #if i == r_len - 2:
+                #else:
                     log_pr1 = -1/2 * math.log(2*math.pi*var_c1[i-r_len+4])\
                             - math.pow(float(row[i]) - exp_c1[i-r_len+4], 2)\
                             / (2*var_c1[i-r_len+4])
@@ -33,7 +34,7 @@ def classify():
                             - math.pow(float(row[i]) - exp_c2[i-r_len+4], 2)\
                             / (2*var_c2[i-r_len+4])
                     score_c2 += log_pr2
-            print score_c1, score_c2
+            #print score_c1, score_c2
             if score_c1 >= score_c2:
                 res.append(1)
             else:
@@ -45,6 +46,6 @@ def classify():
     accuracy /= float(line_num - 1)
     return accuracy, res
 (accuracy, res) = classify()
-print accuracy
-for ele in res:
-    print ele,
+print "The accuracy is:", accuracy
+#for ele in res:
+#    print ele,
